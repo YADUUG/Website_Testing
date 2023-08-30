@@ -1,0 +1,42 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+# Initialize the WebDriver (You need to download the appropriate driver for your browser)
+driver = webdriver.Chrome(executable_path="path_to_chromedriver.exe")
+
+# Define the URL of the website to test
+url = "https://example.com"
+
+# Open the website in the browser
+driver.get(url)
+
+# Simulate user interaction (e.g., filling out a login form)
+username_field = driver.find_element_by_name("username")
+password_field = driver.find_element_by_name("password")
+login_button = driver.find_element_by_id("login-button")
+
+# Example input values
+username_field.send_keys("testuser")
+password_field.send_keys("password123")
+login_button.click()
+
+# Simulate AI decision-making (you can replace this with a real AI model)
+expected_page_title = "Welcome to Example.com"
+
+if expected_page_title in driver.title:
+    print("Test Passed: Login Successful!")
+else:
+    print("Test Failed: Login Unsuccessful!")
+
+# Close the browser
+driver.quit()
+
+
+
+
+
+
+
+
+
+pip install selenium webdriver-manager
